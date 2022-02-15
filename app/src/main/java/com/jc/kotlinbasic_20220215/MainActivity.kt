@@ -5,6 +5,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.math.min
 
 class MainActivity : AppCompatActivity() {
 
@@ -64,6 +65,36 @@ class MainActivity : AppCompatActivity() {
             } else {
 //                위의 모든 질문이 틀렸을 때만 실행할 내용
                 Toast.makeText(this, "미취학 아동입니다.", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+
+        btnCondition2.setOnClickListener {
+
+//            회사 상황
+            val salary = 3600
+            val minutes = 50
+            val overWork = true
+
+//            취업 조건
+//            1. 연봉 3000 이상 AND 출퇴근 시간 30분 이내
+            if (salary >= 3000 && minutes < 30) {
+                Log.d("조건문2", "연봉과, 거리 모두 OK")
+            }
+
+//            2. 연봉 3500 이상 OR 툴퇴근 시간 10분 이내
+            if (salary >= 3600 || minutes < 10) {
+                Log.d("조건문2", "연봉이나 거리 중 하나 OK")
+            }
+
+//            3. 야근만 안하면 됨.
+            if (!overWork) {
+                Log.d("조건문3", "야근을 안해야 OK")
+            }
+
+//            4. 연봉은 2800 이상 AND 출퇴근 시간 30분 이내 AND 야근도 없어야.
+            if (salary >= 2000 && minutes < 30 && !overWork) {
+                Log.d("조건문4", "연봉 / 거리 / 야근 여부 모두 만족")
             }
 
         }
