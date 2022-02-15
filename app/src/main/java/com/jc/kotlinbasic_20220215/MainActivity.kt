@@ -25,6 +25,11 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "토스트를 띄워봅니다.", Toast.LENGTH_SHORT).show()
         }
 
+        btnVariable.setOnClickListener {
+//            변수에 대한 문법 연습용 코드
+
+        }
+
     }
 
 }
